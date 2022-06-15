@@ -10,8 +10,6 @@ namespace Compromisos.Models
 {
     public class ConexionBD
     {
-        public class ExternosBD
-        {
             private SqlConnection con;
             private void connection()
             {
@@ -117,4 +115,3 @@ namespace Compromisos.Models
             }
         }
     }
-}

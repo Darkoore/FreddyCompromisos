@@ -19,6 +19,7 @@ namespace Compromisos.Controllers
             return View();
         }
 
+
         [HttpPost]
         public ActionResult Index(IdFuncionario lc)
         {
@@ -48,21 +49,64 @@ namespace Compromisos.Controllers
             return View();
         }
 
-
-
-
         public ActionResult Inicio()
         {
             return View();
 
         }
 
+        public ActionResult Create()
+        {
+            return View();
+
+        }
+        [HttpPost]
+        public ActionResult Create(Participantes smodel)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    ConexionBD sdb = new ConexionBD();
+                    if (sdb.AñadirPart(smodel))
+                    {
+                        ViewBag.Message = "Student Details Added Successfully";
+                        ModelState.Clear();
+                    }
+                }
+                return View();
+            }
+            catch
+            {
+                return View();
+            }
+        }
 
         public ActionResult Actividad()
         {
             return View();
         }
-
+        [HttpPost]
+        public ActionResult Actividad(Participantes smodel)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    ConexionBD sdb = new ConexionBD();
+                    if (sdb.AñadirPart(smodel))
+                    {
+                        ViewBag.Message = "Student Details Added Successfully";
+                        ModelState.Clear();
+                    }
+                }
+                return View();
+            }
+            catch
+            {
+                return View();
+            }
+        }
 
 
 
