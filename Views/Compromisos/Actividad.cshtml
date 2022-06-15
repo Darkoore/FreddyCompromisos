@@ -12,15 +12,17 @@
     {
         @Html.AntiForgeryToken()
 
+
         @*Boton Participantes*@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="row">
             <label class="col-2 " style="padding-top:18px;padding-bottom:18px;">Participantes</label>
             <div class="col-10 d-flex justify-content-around">
                 <button type="button" class="btn btn-outline-tertiary col-4" data-toggle="modal" data-target="#modalRegisterForm">Externos</button>
-                @*Popup Externos
-                *@<div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                       aria-hidden="true">
+
+
+                @*Popup Externos*@
+                <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header text-center">
@@ -80,6 +82,8 @@
                 <button type="button" class="btn btn-outline-tertiary col-4" data-toggle="modal" data-target="#modalFuncionariosform">Funcionarios</button>
             </div>
         </div>
+
+
         @*Aquí añadir tabla*@
         <form class="row pt-4">
 
@@ -176,6 +180,6 @@
     }
 
 </div>
-    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

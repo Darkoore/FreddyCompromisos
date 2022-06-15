@@ -116,7 +116,6 @@
     <Content Include="Views\Compromisos\Inicio.cshtml" />
     <Content Include="Views\Shared\_LayoutInicioSesion.cshtml" />
     <Content Include="Views\Compromisos\Actividad.cshtml" />
-    <Content Include="Views\Compromisos\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
