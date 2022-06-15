@@ -1,0 +1,295 @@
+﻿@model IEnumerable<Compromisos.Models.Participantes>
+@*@using Compromisos.Models;
+@model Compromisos.Models.Participantes*@
+
+@{
+    ViewBag.Title = "Actividad";
+    Layout = "~/Views/Shared/_LayoutInicioSesion.cshtml";
+}
+
+<div class="container pt-4">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        @*Boton Participantes*@
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="row">
+            <label class="col-2 " style="padding-top:18px;padding-bottom:18px;">Participantes</label>
+            <div class="col-10 d-flex justify-content-around">
+                <button type="button" class="btn btn-outline-tertiary col-4" data-toggle="modal" data-target="#modalRegisterForm">Externos</button>
+                @*Popup Externos
+                *@<div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                       aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header text-center">
+                                <h4 class="modal-title w-100 font-weight-bold">Externos</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body mx-3">
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.PART_RUT, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.PART_RUT, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.PART_RUT, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.PART_NOMBRE, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.PART_NOMBRE, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.PART_NOMBRE, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.PART_FONO, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.PART_FONO, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.PART_FONO, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.PART_EMAIL, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.PART_EMAIL, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.PART_EMAIL, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    @Html.LabelFor(model => model.PART_INSTITUCION, htmlAttributes: new { @class = "control-label col-md-2" })
+                                    <div class="col-md-10">
+                                        @Html.EditorFor(model => model.PART_INSTITUCION, new { htmlAttributes = new { @class = "form-control" } })
+                                        @Html.ValidationMessageFor(model => model.PART_INSTITUCION, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                                <div class="modal-footer d-flex justify-content-center">
+                                    <button type="submit" value="Registrar" class="btn btn-outline-secondary">Registrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-outline-tertiary col-4" data-toggle="modal" data-target="#modalFuncionariosform">Funcionarios</button>
+            </div>
+        </div>
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.PART_RUT)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PART_NOMBRE)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PART_FONO)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PART_EMAIL)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PART_INSTITUCION)
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PART_RUT)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PART_NOMBRE)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PART_FONO)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PART_EMAIL)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PART_INSTITUCION)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { PART_RUT = item.PART_RUT }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.PART_RUT }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.PART_RUT }, new { onclick = "return confirm('Are sure wants to delete?');" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+
+
+
+
+
+        <form class="row pt-4">
+
+            <label class="col">Motivo</label>
+            <div class="col-10 d-flex justify-content-center">
+                <input class="form-control col-10" type="text" placeholder="Escriba aquí..." />
+            </div>
+        </form>
+
+        <div class="row pt-4">
+            <label class="col">Detalle de la reunion</label>
+            <div class="col-10 d-flex justify-content-center">
+                <textarea class="form-control col-10" id="TxtAreaDetalle" rows="5" placeholder="Ingrese texto..."></textarea>
+            </div>
+        </div>
+
+        <div class="row pt-4">
+            <label class="col" style="padding-top:18px;padding-bottom:18px;">Gestion de Compromisos</label>
+            <div class="col-10 d-flex justify-content-center">
+                <button type="button" class="btn btn-outline-tertiary col-10" data-toggle="modal" data-target="#modalCompromisosForm">Añadir Compromiso</button>
+            </div>
+        </div>
+        <div class="d-none row pt-4">
+
+        </div>
+        <div class="row pt-4">
+
+            <div class="col-12 d-flex justify-content-center">
+                <button type="button" class="btn btn-outline-primary col-4">Añadir Actividad</button>
+            </div>
+        </div>
+
+        @*Popup Externos*@
+        <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <h4 class="modal-title w-100 font-weight-bold">Externos</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body mx-3">
+                        <div class="md-form mb-3">
+                            <i class="fas fa-user prefix grey-text"></i>
+                            <label data-error="wrong" data-success="right" for="orangeForm-name">Rut</label>
+                            <input placeholder="19.999.999-9" type="number" id="orangeForm-name" class="form-control validate">
+
+                        </div>
+
+                        <div class="md-form mb-3">
+                            <i class="fas fa-user prefix grey-text"></i>
+                            <label data-error="wrong" data-success="right" for="orangeForm-name">Nombre</label>
+                            <input placeholder="Nombre ApellidoP ApellidoM" type="text" id="orangeForm-name" class="form-control validate">
+
+                        </div>
+
+                        <div class="md-form mb-3">
+                            <i class="fas fa-lock prefix grey-text"></i>
+                            <label data-error="wrong" data-success="right" for="orangeForm-pass">Telefono</label>
+                            <input placeholder="+56965445612" type="number" id="orangeForm-pass" class="form-control validate">
+
+                        </div>
+
+                        <div class="md-form mb-3">
+                            <i class="fas fa-envelope prefix grey-text"></i>
+                            <label data-error="wrong" data-success="right" for="orangeForm-email">Correo</label>
+                            <input placeholder="Correo@ejemplo.cl" type="email" id="orangeForm-email" class="form-control validate">
+
+                        </div>
+
+                        <div class="md-form mb-3">
+                            <i class="fas fa-user prefix grey-text"></i>
+                            <label data-error="wrong" data-success="right" for="orangeForm-name">Institucion</label>
+                            <input placeholder="Ingrese institucion..." type="text" id="orangeForm-name" class="form-control validate">
+
+                        </div>
+
+                        <div class="modal-footer d-flex justify-content-center">
+                            <button class="btn btn-outline-secondary">Registrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        @*Popup Funcionarios*@
+        <div class="modal fade" id="modalFuncionariosform" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <h4 class="modal-title w-100 font-weight-bold">Elegir Funcionario</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body mx-3">
+                        <form autocomplete="off" action="#">
+                            <div class="autocomplete" style="width:300px;">
+                                <input id="myInput" type="text" name="myCountry" placeholder="Ingrese Nombre Funcionario">
+                            </div>
+                            <input type="submit">
+                        </form>
+
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button class="btn btn-outline-secondary">Añadir Funcionario</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        @*Popup Añadir Compromiso*@
+        <div class="modal fade" id="modalCompromisosForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header text-center">
+                        <h4 class="modal-title w-100 font-weight-bold">Añadir Compromisos</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body mx-3">
+                        <div class="md-form mb-5">
+                            <i class="fas fa-user prefix grey-text"></i>
+                            <label data-error="wrong" data-success="right" for="orangeForm-name">Tarea</label>
+                            <input type="text" id="orangeForm-name" class="form-control validate">
+
+                        </div>
+                        <div class="md-form mb-5">
+                            <i class="fas fa-envelope prefix grey-text"></i>
+                            <label data-error="wrong" data-success="right" for="orangeForm-number">Plazo</label>
+                            <input type="number" id="orangeForm-number" class="form-control validate">
+
+                        </div>
+
+                        <div class="md-form mb-4">
+                            <i class="fas fa-lock prefix grey-text"></i>
+                            <label data-error="wrong" data-success="right" for="orangeForm-name">Responsable</label>
+                            <input type="text" id="orangeForm-name" class="form-control validate">
+
+                        </div>
+                    </div>
+                    <div class="modal-footer d-flex justify-content-center">
+                        <button class="btn btn-outline-secondary">Registrar Compromiso</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

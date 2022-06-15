@@ -114,4 +114,8 @@ namespace Compromisos.Models
                     return false;
             }
         }
+<<<<<<< Updated upstream
     }
+=======
+    }
+>>>>>>> Stashed changes

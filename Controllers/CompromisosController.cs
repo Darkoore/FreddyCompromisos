@@ -84,8 +84,16 @@ namespace Compromisos.Controllers
 
         public ActionResult Actividad()
         {
-            return View();
+
+
+            ConexionBD dbhandle = new ConexionBD();
+            ModelState.Clear();
+            return View(dbhandle.LeerParticipantes());
         }
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
         [HttpPost]
         public ActionResult Actividad(Participantes smodel)
         {
