@@ -105,6 +105,8 @@
     <Compile Include="Models\ConexionBD.cs" />
     <Compile Include="Models\IdFuncionario.cs" />
     <Compile Include="Models\Participantes.cs" />
+    <Compile Include="Models\ParticipantesList.cs" />
+    <Compile Include="Models\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
