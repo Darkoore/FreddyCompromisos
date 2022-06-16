@@ -7,7 +7,8 @@ namespace Compromisos.Models
 {
     public class ViewModel
     {
-        public ICollection <ParticipantesList> ParticipantesLists { get; set; }
-        public Participantes Participantes { get; set; }
+        public IEnumerable <ParticipantesList> Participantes { get; set; }
+        //public List<Compromisos.Models.Participantes> Participantes { get; set; }
+        public Participantes Participante { get; set; }
     }
 }

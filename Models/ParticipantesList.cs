@@ -18,5 +18,7 @@ namespace Compromisos.Models
         public string PART_EMAIL { get; set; }
         [Required(ErrorMessage = "Institucion is required.")]
         public string PART_INSTITUCION { get; set; }
+
+
     }
 }

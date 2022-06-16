@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Compromisos.Models.Participantes>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PART_RUT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PART_NOMBRE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PART_FONO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PART_EMAIL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PART_INSTITUCION)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PART_RUT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PART_NOMBRE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PART_FONO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PART_EMAIL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PART_INSTITUCION)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

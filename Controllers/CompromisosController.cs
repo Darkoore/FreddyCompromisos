@@ -56,10 +56,15 @@ namespace Compromisos.Controllers
         }
         public ActionResult Actividad()
         {
+            //ConexionBD dbhandle = new ConexionBD();
+            //ModelState.Clear();
+            //return View(dbhandle.LeerParticipantes());
             return View();
+
+            
         }
         [HttpPost]
-        public ActionResult Actividad(Participantes smodel)
+        public ActionResult Actividad(ViewModel smodel)
         {
             try
             {

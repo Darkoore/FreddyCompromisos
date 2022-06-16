@@ -18,17 +18,17 @@ namespace Compromisos.Models
             }
 
             // **************** ADD NEW STUDENT *********************
-            public bool AñadirPart(Participantes smodel)
+            public bool AñadirPart(ViewModel smodel)
             {
                 connection();
                 SqlCommand cmd = new SqlCommand("agregarPart", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@PART_RUT", smodel.PART_RUT);
-                cmd.Parameters.AddWithValue("@PART_NOMBRE", smodel.PART_NOMBRE);
-                cmd.Parameters.AddWithValue("@PART_FONO", smodel.PART_FONO);
-                cmd.Parameters.AddWithValue("@PART_EMAIL", smodel.PART_EMAIL);
-                cmd.Parameters.AddWithValue("@PART_INSTITUCION", smodel.PART_INSTITUCION);
+                cmd.Parameters.AddWithValue("@PART_RUT", smodel.Participante.PART_RUT);
+                cmd.Parameters.AddWithValue("@PART_NOMBRE", smodel.Participante.PART_NOMBRE);
+                cmd.Parameters.AddWithValue("@PART_FONO", smodel.Participante.PART_FONO);
+                cmd.Parameters.AddWithValue("@PART_EMAIL", smodel.Participante.PART_EMAIL);
+                cmd.Parameters.AddWithValue("@PART_INSTITUCION", smodel.Participante.PART_INSTITUCION);
 
 
                 con.Open();
