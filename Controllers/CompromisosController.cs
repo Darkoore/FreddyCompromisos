@@ -85,7 +85,12 @@ namespace Compromisos.Controllers
             }
         }
 
-
+        public ActionResult MostrarFuncionarios()
+        {
+            ConexionBD dbhandle = new ConexionBD();
+            ModelState.Clear();
+            return View(dbhandle.LeerFuncionarios());
+        }
 
     }
 }

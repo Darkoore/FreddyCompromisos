@@ -165,8 +165,8 @@
 
 
 
-        @*Popup Funcionarios*@<div class="modal fade" id="modalFuncionariosform" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                                   aria-hidden="true">
+        @*Popup Funcionarios*@
+        <div class="modal fade" id="modalFuncionariosform" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header text-center">
@@ -193,8 +193,8 @@
 
 
 
-        @*Popup Añadir Compromiso*@<div class="modal fade" id="modalCompromisosForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                                        aria-hidden="true">
+        @*Popup Añadir Compromiso*@
+        <div class="modal fade" id="modalCompromisosForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header text-center">
@@ -236,3 +236,41 @@
 <script src="~/Scripts/jquery-3.4.1.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+@*<script>
+
+        alert("Hola");
+        var tabladata;
+
+
+        jQuery.ajax({
+            url: '@Url.Action("LeerParticipantes", "Compromisos")',
+        type: "GET",
+        dataType: "json",
+        contentType: "application/json; charset=utf-8",
+        succes: function (data) {
+            console.log(data)
+        }
+
+        })
+
+        tabladata = $("#table").DataTable({
+            responsive: true,
+        ordering: false,
+        "ajax": {
+            url: '@Url.Action("LeerParticipantes", "Compromisos")',
+        type: "GET",
+        dataType: "json"
+            },
+        "columns": [
+        {"data": "PART_RUT" },
+        {"data": "PART_NOMBRE" },
+        {"data": "PART_FONO" },
+        {"data": "PART_EMAIL" },
+        {"data": "PART_INSTITUCION" }
+
+        ]
+
+        })
+
+</script>*@

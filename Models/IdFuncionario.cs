@@ -12,6 +12,9 @@ namespace Compromisos.Models
         [Display(Name = "Ingrese su Func_id")]
         public string FUNC_ID { get; set; }
 
+        [Display(Name = "FUNCIONARIO")]
+        public string FUNC_NOMBRE { get; set; }
+
         [Required(ErrorMessage = "Porfavor ingrese su password !")]
         [Display(Name = "Ingrese su Utrabajo")]
         [DataType(DataType.Password)]

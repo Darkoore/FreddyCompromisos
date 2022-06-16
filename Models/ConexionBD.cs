@@ -70,7 +70,7 @@ namespace Compromisos.Models
                 }
                 return participantelist;
             }
-
+            
             // ***************** UPDATE STUDENT DETAILS *********************
             public bool ActualizarPart(Participantes smodel)
             {
@@ -113,5 +113,30 @@ namespace Compromisos.Models
                 else
                     return false;
             }
+
+        public List<IdFuncionario> LeerFuncionarios()
+        {
+            connection();
+            List<IdFuncionario> funcionariosList = new List<IdFuncionario>();
+
+            SqlCommand cmd = new SqlCommand("LeerFunc", con);
+            cmd.CommandType = CommandType.StoredProcedure;
+            SqlDataAdapter sd = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+
+            con.Open();
+            sd.Fill(dt);
+            con.Close();
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                funcionariosList.Add(
+                    new IdFuncionario()
+                    {
+                        FUNC_NOMBRE = Convert.ToString(dr["FUNC_NOMBRE"])
+                    });
+            }
+            return funcionariosList;
         }
+    }
     }
